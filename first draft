@@ -1,0 +1,52 @@
+print ("Hosgeldiniz, ne yapmak istiyorsunuz:\n"
+"1. Gorev ekle\n"
+"2. Gorevleri listele\n"
+"3. Gorev sil\n"
+"4. Cikis yap\n")
+gorevler=[]
+
+while True:
+    
+    karar =int (input ("Hangi islemi yapmak istiyorsunuz:"))
+    print(type(karar))
+
+
+    def gorevekle():
+        paylasilangorev=input("\nListeye eklemek istediginiz gorev:   ")
+        gorevler.append(paylasilangorev)
+        print(f"{paylasilangorev} basariyla listeye eklenmistir.")  
+        print("Yeni full liste: "f"{gorevler}")  
+    
+    def gorevlistele():
+        print("Mevcut liste: \n")
+        print(gorevler)
+
+    def gorevsil():
+        print("Gorev silmeyi sectiniz\n")
+        gorevsilmesecimi=input("Yalnizca 1 gorev silmek icin 1, butun gorevleri silmek icin 00 komutunu girin:   " )
+        if gorevsilmesecimi=="1":
+            print(gorevler)
+            kacincielemansil=int(input("Listenin kacinci elemanini silmek istiyorsunuz:   "))
+            del gorevler[kacincielemansil-1]
+            print("Gorev silinmistir. Yeni liste:"f"{gorevler}")
+        elif gorevsilmesecimi=="00":
+            gorevler.clear()
+            print("Butun gorevler silindi.")
+        else: 
+            print("Gecersiz bir giris yaptiniz.\n")
+    
+
+    def cikisyap():
+        print("Cikis yapmayi sectiniz.")
+    
+    if karar==1:
+        gorevekle()
+    elif karar==2:
+        gorevlistele()
+    elif karar==3:
+        gorevsil()
+    elif karar==4:
+        cikisyap()
+    else: 
+        print ("Hatali giris.")
+    
